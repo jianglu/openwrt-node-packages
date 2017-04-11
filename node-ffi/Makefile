@@ -27,7 +27,7 @@ PKG_LICENSE_FILES:=README.md
 include $(INCLUDE_DIR)/package.mk
 
 define Package/node-ffi
-  DEPENDS:=+node
+  DEPENDS:=+node +libstdcpp +USE_UCLIBC:libpthread
   SUBMENU:=Node.js
   SECTION:=lang
   CATEGORY:=Languages
