@@ -1,0 +1,15 @@
+diff --git a/src/ffi.cc b/src/ffi.cc
+index 2082932..2f2a98e 100644
+--- a/src/ffi.cc
++++ b/src/ffi.cc
+@@ -67,6 +67,10 @@ NAN_MODULE_INIT(FFI::InitializeBindings) {
+ #ifdef __arm__
+   SET_ENUM_VALUE(FFI_SYSV);
+   SET_ENUM_VALUE(FFI_VFP);
++
++  /* ---- MIPS(EL) processors ---------- */
++#elif defined(MIPS)
++
+   /* ---- Intel x86 Win32 ---------- */
+ #elif defined(X86_WIN32)
+   SET_ENUM_VALUE(FFI_SYSV);

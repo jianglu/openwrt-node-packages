@@ -1,0 +1,22 @@
+diff --git a/deps/libffi/libffi.gyp b/deps/libffi/libffi.gyp
+index 9f31922..757478c 100644
+--- a/deps/libffi/libffi.gyp
++++ b/deps/libffi/libffi.gyp
+@@ -123,7 +123,16 @@
+               'sources': [ 'src/arm/sysv.S' ]
+             }]
+           ]
+-        }, { # ia32 or x64
++        }],
++        ['target_arch=="mipsel"', {
++          'sources': [ 'src/mips/ffi.c' ],
++          'conditions': [
++            ['OS=="linux"', {
++              'sources': [ 'src/mips/n32.S', 'src/mips/o32.S' ]
++            }]
++          ]
++        }],
++        ['target_arch=="ia32"', { # ia32 or x64
+           'sources': [
+             'src/x86/ffi.c',
+             'src/x86/ffi64.c'
